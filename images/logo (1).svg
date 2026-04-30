@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="120" height="120">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="50%" r="50%">
+      <stop offset="0%"   stop-color="#a00000"/>
+      <stop offset="100%" stop-color="#5c0000"/>
+    </radialGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#0006"/>
+    </filter>
+  </defs>
+  <!-- Outer ring -->
+  <circle cx="100" cy="100" r="96" fill="url(#bg)" filter="url(#shadow)"/>
+  <circle cx="100" cy="100" r="90" fill="none" stroke="#FFD700" stroke-width="3"/>
+  <circle cx="100" cy="100" r="84" fill="none" stroke="#FFD700" stroke-width="1" stroke-dasharray="4 3"/>
+  <!-- Graduation cap -->
+  <polygon points="100,48 148,70 100,92 52,70" fill="#FFD700"/>
+  <rect   x="97" y="92" width="6" height="24" rx="2" fill="#FFD700"/>
+  <circle cx="100" cy="119" r="5" fill="#FFD700"/>
+  <!-- Tassel line -->
+  <line x1="148" y1="70" x2="148" y2="95" stroke="#FFD700" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="148" cy="99" r="4" fill="#FFD700"/>
+  <!-- Text -->
+  <text x="100" y="148" text-anchor="middle" fill="#FFD700"
+        font-size="20" font-weight="900" font-family="Arial,sans-serif" letter-spacing="2">DACNAS</text>
+  <text x="100" y="165" text-anchor="middle" fill="#fff"
+        font-size="8.5" font-family="Arial,sans-serif" letter-spacing="1">STUDENT MANAGEMENT</text>
+</svg>
