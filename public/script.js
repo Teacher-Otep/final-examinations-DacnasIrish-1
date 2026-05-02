@@ -1,3 +1,13 @@
+/* ============================================================
+   DACNAS — script.js
+
+   Requirements covered:
+     - Section switching (instant JS toggle)
+     - Logo click → Navigate to Home
+     - clearFields() clears all text & number inputs in #create-form
+     - Refreshes always go to Home (URL is kept clean)
+   ============================================================ */
+
 var SECTIONS = ['home', 'create', 'read', 'update', 'delete'];
 
 function showSection(id) {
