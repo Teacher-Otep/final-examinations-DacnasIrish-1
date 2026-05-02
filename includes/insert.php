@@ -1,5 +1,5 @@
 <?php
-include_once __DIR__ . '/includes/db.php';
+include_once __DIR__ . '/db.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && $pdo) {
     $name    = trim($_POST['name']    ?? '');
@@ -9,7 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $pdo) {
     $contact = trim($_POST['contact_number'] ?? '') ?: null;
 
     if ($contact && !preg_match('/^[0-9]{11}$/', $contact)) {
-        flash('Contact number must be exactly 11 digits.', 'error', 'index.php', 'create');
+        flash('Contact number must be exactly 11 digits.', 'error', '../public/index.php', 'create');
     }
 
     if ($name && $sur) {
@@ -18,14 +18,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $pdo) {
                                  VALUES(:n,:s,:m,:a,:c)");
             $st->execute([':n'=>$name, ':s'=>$sur, ':m'=>$mid, ':a'=>$addr, ':c'=>$contact]);
             
-            flash('Student added! ID: '.$pdo->lastInsertId(), 'success', 'index.php', 'read');
+            flash('Student added! ID: '.$pdo->lastInsertId(), 'success', '../public/index.php', 'read');
         } catch (Exception $e) {
-            flash('Failed to add student: ' . $e->getMessage(), 'error', 'index.php', 'create');
+            flash('Failed to add student: ' . $e->getMessage(), 'error', '../public/index.php', 'create');
         }
     }
     
-    flash('First name and surname are required.', 'error', 'index.php', 'create');
+    flash('First name and surname are required.', 'error', '../public/index.php', 'create');
 }
 
-header("Location: index.php");
+header("Location: ../public/index.php");
 exit;
