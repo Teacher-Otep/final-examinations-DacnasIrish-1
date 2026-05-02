@@ -1,5 +1,5 @@
 <?php
-include_once __DIR__ . '/includes/db.php';
+include_once __DIR__ . '/db.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && $pdo) {
     $id = (int) ($_POST['id'] ?? 0);
@@ -10,7 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $pdo) {
     $cnt = trim($_POST['contact_number'] ?? '') ?: null;
 
     if ($cnt && !preg_match('/^[0-9]{11}$/', $cnt)) {
-        flash('Contact number must be exactly 11 digits.', 'error', 'index.php', 'update');
+        flash('Contact number must be exactly 11 digits.', 'error', '../public/index.php', 'update');
     }
 
     if ($id && $name && $sur) {
@@ -18,14 +18,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $pdo) {
             $st = $pdo->prepare("UPDATE students SET name=:n, surname=:s, middlename=:m, address=:a, contact_number=:c WHERE id=:id");
             $st->execute([':n' => $name, ':s' => $sur, ':m' => $mid, ':a' => $addr, ':c' => $cnt, ':id' => $id]);
 
-            flash("Student ID $id updated.", 'success', 'index.php', 'read');
+            flash("Student ID $id updated.", 'success', '../public/index.php', 'read');
         } catch (Exception $e) {
-            flash("Failed to update student: " . $e->getMessage(), 'error', 'index.php', 'update');
+            flash("Failed to update student: " . $e->getMessage(), 'error', '../public/index.php', 'update');
         }
     }
 
-    flash('ID, name and surname are required.', 'error', 'index.php', 'update');
+    flash('ID, name and surname are required.', 'error', '../public/index.php', 'update');
 }
 
-header("Location: index.php");
+header("Location: ../public/index.php");
 exit;
