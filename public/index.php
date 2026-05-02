@@ -140,10 +140,8 @@ if ($pdo && isset($_GET['load_id'])) {
           </div>
           <div class="form-group">
             <label for="c-contact">Contact Number <span class="opt">(optional)</span></label>
-            <input type="text" id="c-contact" name="contact_number" 
-                   placeholder="e.g. 09171234567" 
-                   pattern="[0-9]{11}" 
-                   title="Contact number must be exactly 11 digits">
+            <input type="text" id="c-contact" name="contact_number" placeholder="e.g. 09171234567" pattern="[0-9]{11}"
+              title="Contact number must be exactly 11 digits">
           </div>
           <div class="form-actions">
             <button type="submit" class="btn btn-primary" id="btn-submit-create">Add Student</button>
@@ -242,10 +240,8 @@ if ($pdo && isset($_GET['load_id'])) {
             </div>
             <div class="form-group">
               <label for="u-contact">Contact Number <span class="opt">(optional)</span></label>
-              <input type="text" id="u-contact" name="contact_number" 
-                     value="<?= esc($edit_student['contact_number']) ?>"
-                     pattern="[0-9]{11}" 
-                     title="Contact number must be exactly 11 digits">
+              <input type="text" id="u-contact" name="contact_number" value="<?= esc($edit_student['contact_number']) ?>"
+                pattern="[0-9]{11}" title="Contact number must be exactly 11 digits">
             </div>
             <div class="form-actions">
               <button type="submit" class="btn btn-primary" id="btn-save-update">Save Changes</button>
