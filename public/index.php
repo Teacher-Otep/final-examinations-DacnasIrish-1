@@ -2,7 +2,7 @@
 /*
  * index.php — Main View
  */
-include_once __DIR__ . '/includes/db.php';
+include_once __DIR__ . '/../includes/db.php';
 
 /* ---------- Flash messages ---------- */
 $message = '';
@@ -65,7 +65,7 @@ if ($pdo && isset($_GET['load_id'])) {
   <header class="site-header">
     <div class="header-inner">
       <div class="logo-area">
-        <img src="images/logo.svg" id="logo" alt="DACNAS Logo" title="Click to hide all sections">
+        <img src="../images/logo.svg" id="logo" alt="DACNAS Logo" title="Click to hide all sections">
         <div class="header-titles">
           <h1 class="site-name">DACNAS</h1>
           <span class="site-sub">Student Management System</span>
@@ -105,8 +105,6 @@ if ($pdo && isset($_GET['load_id'])) {
       <div class="section-header">
         <h2>Student Management System</h2>
         <p class="section-desc">A project in Integrative Programming and Technologies </p>
-        <p class="section-desc">Submitted By: Irish C. Dacnas </p>
-        <p class="section-desc">BSIT 2B </p>
       </div>
       <div class="section-body home-body">
       </div>
@@ -265,12 +263,12 @@ if ($pdo && isset($_GET['load_id'])) {
         <p class="section-desc">Select a student and confirm to permanently remove their record.</p>
       </div>
       <div class="section-body">
-        <form method="POST" action="delete.php" class="student-form" id="delete-form">
-          <div class="form-group">
-            <label for="del-id">Enter Student ID to Delete</label>
-            <input type="number" id="del-id" name="delete_id" placeholder="e.g. 1" min="1" required>
-          </div>
-          <div class="form-actions">
+        <form method="POST" action="delete.php" class="student-form select-id-form" id="delete-form">
+          <div class="form-row inline-row">
+            <div class="form-group">
+              <label for="del-id">Enter Student ID to Delete</label>
+              <input type="number" id="del-id" name="delete_id" placeholder="e.g. 1" min="1" required>
+            </div>
             <button type="button" class="btn btn-danger" id="btn-confirm-delete">
               Delete Student
             </button>
