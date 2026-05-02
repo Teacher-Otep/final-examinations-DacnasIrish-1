@@ -383,6 +383,10 @@ body {
   flex: 1;
 }
 
+.inline-row > .btn {
+  margin-bottom: 18px;
+}
+
 .form-group {
   display: flex;
   flex-direction: column;
