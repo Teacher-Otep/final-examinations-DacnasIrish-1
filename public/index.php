@@ -2,7 +2,7 @@
 /*
  * index.php — Main View
  */
-include_once __DIR__ . '/../includes/db.php';
+include_once __DIR__ . '/includes/db.php';
 
 /* ---------- Flash messages ---------- */
 $message = '';
@@ -65,7 +65,7 @@ if ($pdo && isset($_GET['load_id'])) {
   <header class="site-header">
     <div class="header-inner">
       <div class="logo-area">
-        <img src="../images/logo.svg" id="logo" alt="DACNAS Logo" title="Click to hide all sections">
+        <img src="images/logo.svg" id="logo" alt="DACNAS Logo" title="Click to hide all sections">
         <div class="header-titles">
           <h1 class="site-name">DACNAS</h1>
           <span class="site-sub">Student Management System</span>
@@ -86,7 +86,7 @@ if ($pdo && isset($_GET['load_id'])) {
 
   <main class="main-wrap">
 
-    <?php if ($db_error): ?>
+    <?php if (isset($db_error) && $db_error): ?>
       <div class="alert alert-error" id="db-error">
         <strong>Database Error:</strong> <?= esc($db_error) ?>
         <p style="font-size: 0.8rem; margin-top: 5px;">Please ensure your MySQL server is running in XAMPP.</p>
@@ -117,7 +117,7 @@ if ($pdo && isset($_GET['load_id'])) {
         <p class="section-desc">Fill in the details below to add a new student.</p>
       </div>
       <div class="section-body">
-        <form id="create-form" method="POST" action="../includes/insert.php" class="student-form" autocomplete="off">
+        <form id="create-form" method="POST" action="includes/insert.php" class="student-form" autocomplete="off">
           <div class="form-row two-col">
             <div class="form-group">
               <label for="c-name">First Name <span class="req">*</span></label>
@@ -215,7 +215,7 @@ if ($pdo && isset($_GET['load_id'])) {
 
         <?php if ($edit_student): ?>
           <hr class="section-divider">
-          <form method="POST" action="../includes/update.php" class="student-form" id="update-form" autocomplete="off">
+          <form method="POST" action="includes/update.php" class="student-form" id="update-form" autocomplete="off">
             <input type="hidden" name="id" value="<?= esc($edit_student['id']) ?>">
             <p class="editing-badge">Editing Student ID: <strong><?= esc($edit_student['id']) ?></strong></p>
             <div class="form-row two-col">
@@ -263,7 +263,7 @@ if ($pdo && isset($_GET['load_id'])) {
         <p class="section-desc">Select a student and confirm to permanently remove their record.</p>
       </div>
       <div class="section-body">
-        <form method="POST" action="../includes/delete.php" class="student-form select-id-form" id="delete-form">
+        <form method="POST" action="includes/delete.php" class="student-form select-id-form" id="delete-form">
           <div class="form-row inline-row">
             <div class="form-group">
               <label for="del-id">Enter Student ID to Delete</label>
