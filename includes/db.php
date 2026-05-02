@@ -72,3 +72,4 @@ function flash($msg, $type, $dest, $target_sec = null) {
     header("Location: $dest");
     exit;
 }
+
